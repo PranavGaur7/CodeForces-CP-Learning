@@ -10,17 +10,17 @@ int main(){
     {
         int n;
         cin>>n;
-        multiset<int> st;
+        vector<int> v;
         ll res = 0;
         for(int i = 0;i<n;i++) {
             int x;
             cin>>x;
             if(x<(i+1)){
-                if(!st.empty()){
-                    auto it = st.lower_bound(x);
-                    res+=distance(st.begin(),it);
+                if(!v.empty()){
+                    auto it = lower_bound(v.begin(),v.end(),x);
+                    res+=it-v.begin();
                 }
-                st.insert(i+1);
+                v.push_back(i+1);
             }
         }
 
